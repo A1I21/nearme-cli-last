@@ -1,0 +1,103 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mongodb"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    user_id  String @id @default(auto()) @map("_id") @db.ObjectId
+    username String @unique
+    password String
+    email    String
+    phone    String
+    name     String
+}
+
+model Place {
+    place_id     String        @id @default(auto()) @map("_id") @db.ObjectId
+    name         String
+    address      String
+    city         String
+    phone        String
+    latitude     Float         @default(0)
+    longitude    Float         @default(0)
+    rating       Rating
+    price        Price
+    openinghours String
+    radius       Float         @default(0)
+    category     Category[]
+    delevryapps  Delevryapps[]
+    created_at   DateTime      @default(now())
+    usersfavs    String[]
+
+}
+
+enum Category {
+    Restaurant
+    Cafe
+    Bar
+    FastFood
+    Pub
+    CoffeeShop
+    Bakery
+    IceCreamShop
+    BurguerPlace
+    PizzaPlace
+    PastaPlace
+    WinePlace
+    JuicePlace
+    TeaPlace
+    CupcakePlace
+    CakePlace
+    CandyPlace
+    DessertPlace
+    PancakePlace
+    SandwichPlace
+    SushiPlace
+    RamenPlace
+    SoupPlace
+    BurgerPlace
+    SteakPlace
+    Pizzeria
+    Pizza
+    Pasta
+    Wine
+    Juice
+    Tea
+    Cupcake
+    Cake
+    Candy
+    Dessert
+    Pancake
+    Sandwich
+    Sushi
+    Ramen
+    Soup
+    Burger
+    Steak
+}
+
+enum Price {
+    cheap
+    avrage
+    expensive
+    veryexpensive
+}
+
+enum Rating {
+    one
+    two
+    three
+    four
+    five
+}
+
+enum Delevryapps {
+    Jahez
+    Hungerstation
+}
+
+//model
