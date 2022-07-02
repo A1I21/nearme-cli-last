@@ -17,7 +17,7 @@ export async function q1() {
 			await userCreate();
 			break;
 		case 'login':
-			await Login();
+			name = await Login();
 			break;
 		case 'quit the app':
 			console.log('bye bye');

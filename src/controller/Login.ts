@@ -15,5 +15,6 @@ export async function Login() {
 		},
 	]);
 	name = username;
+	console.log(name);
 	return name;
 }

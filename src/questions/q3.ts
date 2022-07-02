@@ -2,6 +2,7 @@ import { prompt } from 'inquirer';
 import Choices from 'inquirer/lib/objects/choices';
 import { cheap } from '../controller/place/cheap';
 import { mostFavs } from '../controller/place/mostpup';
+import { openNow } from '../controller/place/openNow';
 import { trendy } from '../controller/place/popRating';
 import { price } from '../controller/place/price';
 import { rating } from '../controller/place/rating';
@@ -19,6 +20,7 @@ export async function q3() {
 			'4-search by the most popular👁👁',
 			'5-search by the most popular and the best rating 🔥🔥',
 			'6-search by the most cheap 💸😔',
+			'7-is it open now🏠',
 		],
 	});
 	switch (q3answer) {
@@ -39,6 +41,9 @@ export async function q3() {
 			break;
 		case '6-search by the most cheap 💸😔':
 			cheap();
+			break;
+		case '7-is it open now🏠':
+			openNow();
 			break;
 	}
 }

@@ -12,13 +12,23 @@ async function start() {
 	console.log('----------------------------------------');
 	console.log('Hello, I am the Near Me!');
 	console.log('----------------------------------------');
+	let date = new Date();
+	let hour = date.getHours();
+	if (hour >= 6 && hour <= 10) {
+		console.log('Good morning,🌞 ');
+	}
+	if (hour >= 10 && hour <= 14) {
+		console.log('Good afternoon,🌞');
+	}
+	if (hour >= 14 || hour <= 5) {
+		console.log('Good evening,🌝 ');
+	}
+
 	console.log('Are you hungry?');
 	console.log('do you know the best choice \n for you?');
 	console.log('Dont worry, I can help you find it!');
-	//ask log or reg
 	const name = await q1();
 	await q2(name);
 	await q3();
-	//console.log([[5, 4, 6], [2, 1], [1], []].sort((first, second) => second.length - first.length));
 }
 start();

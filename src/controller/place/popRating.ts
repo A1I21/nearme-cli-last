@@ -31,6 +31,7 @@ export async function trendy() {
 				c.userfavs,
 			].join(' - ')
 		);
+
 		const { placeProm } = await prompt([
 			{
 				type: 'list',
@@ -40,7 +41,7 @@ export async function trendy() {
 			},
 		]);
 		let xx = placeProm.split(' - ');
-		//get the lat and lng from the xx
+
 		let lat = xx[2];
 		let lng = xx[3];
 		//console.log(lat, lng);

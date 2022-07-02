@@ -17,8 +17,9 @@ export async function q2(name: string) {
 		const { q2Answer2 } = await prompt({
 			type: 'list',
 			name: 'q2Answer2',
-			message: 'what are you looking for?',
-			choices: ['Restaurant', 'Coffee', 'Cafe', 'Parks'],
+			message:
+				'what are you looking for? \n we can help to search for you etc.\n Restaurant, Coffee, Cafe, Parks',
+			choices: ['ready to search🔎'],
 			filter: (val: string) => val.toLowerCase(),
 		});
 		choice = q2Answer;
