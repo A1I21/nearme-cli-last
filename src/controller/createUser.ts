@@ -1,14 +1,10 @@
 import axios from 'axios';
+import ObjectID from 'bson-objectid';
 import { prompt } from 'inquirer';
 import { baseurl } from '..';
 
 export async function userCreate() {
 	const userdata = await prompt([
-		{
-			type: 'input',
-			name: 'user_id',
-			message: 'Enter your user_id 🥸 ',
-		},
 		{
 			type: 'input',
 			name: 'username',
@@ -37,6 +33,7 @@ export async function userCreate() {
 	]);
 	await axios
 		.post(baseurl + '/userrouts/usercreate', {
+			user_id: ObjectID(),
 			...userdata,
 		})
 		.catch((err) => {

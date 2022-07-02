@@ -9,7 +9,7 @@ export async function openNow() {
 	const query = await prompt([
 		{
 			type: 'input',
-			name: 'name',
+			name: 'category',
 			message: 'Enter name to search 🔤 ',
 		},
 	]);
@@ -18,21 +18,10 @@ export async function openNow() {
 		params: query,
 	});
 	const formattedPlace = place.map((c: any) =>
-		[
-			c.name,
-			c.city,
-			c.latitude,
-			c.longitude,
-			c.price,
-			c.rating,
-			c.openinghours,
-			c.radius,
-			c.category,
-			c.delevryapps,
-		].join(' - ')
+		[c.name, c.city, c.latitude, c.longitude, c.price, c.rating, c.openinghours, c.category, c.delevryapps].join(
+			' - '
+		)
 	);
-	//check if the place is open
-	console.log(formattedPlace.openinghours[1]);
 	const { placeProm } = await prompt([
 		{
 			type: 'list',
