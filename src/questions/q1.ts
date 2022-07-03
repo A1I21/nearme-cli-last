@@ -1,14 +1,16 @@
+import chalk from 'chalk';
 import { createSecureServer } from 'http2';
 import { prompt } from 'inquirer';
 import { userCreate } from '../controller/createUser';
 import { Login } from '../controller/Login';
 export async function q1() {
 	let name = '';
+	let msg = chalk.redBright('Are you new?,register\n') + chalk.yellowBright('our friend? pleas Login or Exit');
 	const { q1Answer } = await prompt({
 		type: 'list',
 		name: 'q1Answer',
-		message: 'Are you new? \n register\n our friend\n pleasr Login\n or Exit',
-		choices: ['register', 'Login', 'Quit the app'],
+		message: msg,
+		choices: ['register', 'Login', chalk.red('Quit the app')],
 		filter: (val: string) => val.toLowerCase(),
 	});
 	switch (q1Answer) {
@@ -20,8 +22,9 @@ export async function q1() {
 			name = await Login();
 			break;
 		case 'quit the app':
-			console.log('bye bye');
-			console.log('you will be missed ');
+			process.exit(0);
+			break;
+		default:
 			process.exit(0);
 	}
 

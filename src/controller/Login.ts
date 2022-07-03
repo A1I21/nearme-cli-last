@@ -2,7 +2,7 @@ import axios from 'axios';
 import { prompt } from 'inquirer';
 import { baseurl } from '..';
 export async function Login() {
-	let name = '';
+	let nameoftheuser = '';
 	try {
 		const logdata = await prompt([
 			{
@@ -17,12 +17,14 @@ export async function Login() {
 			},
 		]);
 
-		const { data: User } = await axios.post(baseurl + 'userrouts/userlogin', {
+		const { data: User } = await axios.post(baseurl + '/userrouts/userlogin', {
 			...logdata,
 		});
+
+		nameoftheuser = User.name;
 	} catch (err) {
 		console.log(err);
 	}
 
-	return name;
+	return nameoftheuser;
 }

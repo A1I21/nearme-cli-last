@@ -2,6 +2,7 @@ import axios from 'axios';
 import { prompt } from 'inquirer';
 import { join } from 'path';
 import { baseurl } from '../..';
+import { userCreate } from '../createUser';
 import { placeUrl } from './placeUrl';
 
 export async function openNow() {
@@ -18,10 +19,22 @@ export async function openNow() {
 		params: query,
 	});
 	const formattedPlace = place.map((c: any) =>
-		[c.name, c.city, c.latitude, c.longitude, c.price, c.rating, c.openinghours, c.category, c.delevryapps].join(
-			' - '
-		)
+		[
+			c.name,
+			c.city,
+			c.latitude,
+			c.longitude,
+			c.price,
+			c.rating,
+			c.openinghours,
+			c.category,
+			c.delevryapps,
+			c.usersfavs,
+		].join(' - ')
 	);
+	const nn = 'myname';
+	//push nn to usersfavs
+
 	const { placeProm } = await prompt([
 		{
 			type: 'list',

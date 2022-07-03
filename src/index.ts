@@ -3,30 +3,39 @@ import { searchPlace } from './controller/place/searchPlace';
 import { q1 } from './questions/q1';
 import { q2 } from './questions/q2';
 import { q3 } from './questions/q3';
+import chalk from 'chalk';
+import figlet from 'figlet';
 
 export const baseurl = 'http://127.0.0.1:3000';
 
 async function start() {
 	//put some Gerafics here
 	//get GM OR GE from the time of the day
-	console.log('----------------------------------------');
-	console.log('Hello, I am the Near Me!');
-	console.log('----------------------------------------');
+	console.log(chalk.blue('----------------------------------------'));
+	console.log(chalk.redBright(figlet.textSync('Hello im near me ')));
+	console.log(chalk.blue('----------------------------------------'));
 	let date = new Date();
 	let hour = date.getHours();
 	if (hour >= 6 && hour <= 10) {
-		console.log('Good morning,🌞 ');
+		console.log(chalk.blue.bold('Good morning 🌞 '));
 	}
 	if (hour >= 10 && hour <= 14) {
-		console.log('Good afternoon,🌞');
+		console.log(chalk.blue.bold('Good afternoon,🌞'));
 	}
 	if (hour >= 14 || hour <= 5) {
-		console.log('Good evening,🌝 ');
+		console.log(chalk.blue.bold('Good evening,🌝 '));
 	}
+	console.log(
+		chalk.yellowBright(
+			' Are you hungry?\n' +
+				chalk.blue.underline.white.bold('do you know the best choice for you?') +
+				' Dont worry, I can help you find it!'
+		)
+	);
 
-	console.log('Are you hungry?');
-	console.log('do you know the best choice \n for you?');
-	console.log('Dont worry, I can help you find it!');
+	// console.log(chalk.bold('Are you hungry?'));
+	// console.log('do you know the best choice \n for you?');
+	// console.log('Dont worry, I can help you find it!');
 	const name = await q1();
 	await q2(name);
 	await q3();

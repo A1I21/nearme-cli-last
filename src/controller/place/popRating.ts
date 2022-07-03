@@ -28,10 +28,9 @@ export async function trendy() {
 				c.radius,
 				c.category,
 				c.delevryapps,
-				c.userfavs,
+				c.usersfavs.length,
 			].join(' - ')
 		);
-
 		const { placeProm } = await prompt([
 			{
 				type: 'list',
