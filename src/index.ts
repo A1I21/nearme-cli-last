@@ -32,7 +32,7 @@ async function start() {
 	const { name, token } = await q1();
 	loginaxios = axios.create({
 		headers: {
-			token: token,
+			Authorization: 'Bearer ' + token,
 		},
 	});
 	await q2(name);
