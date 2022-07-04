@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { prompt } from 'inquirer';
-import { baseurl } from '../..';
+import { baseurl, loginaxios } from '../..';
 import { placeUrl } from './placeUrl';
 export async function trendy() {
 	console.log('searching place');
@@ -12,7 +12,7 @@ export async function trendy() {
 		},
 	]);
 	try {
-		const { data: place } = await axios.get(baseurl + '/placeRouts/trendy', {
+		const { data: place } = await loginaxios.get(baseurl + '/placeRouts/trendy', {
 			params: query,
 		});
 

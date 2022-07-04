@@ -5,9 +5,11 @@ import { q2 } from './questions/q2';
 import { q3 } from './questions/q3';
 import chalk from 'chalk';
 import figlet from 'figlet';
+import { Login } from './controller/Login';
+import axios from 'axios';
 
 export const baseurl = 'http://127.0.0.1:3000';
-
+export let loginaxios = axios.create({});
 async function start() {
 	//put some Gerafics here
 	//get GM OR GE from the time of the day
@@ -36,7 +38,13 @@ async function start() {
 	// console.log(chalk.bold('Are you hungry?'));
 	// console.log('do you know the best choice \n for you?');
 	// console.log('Dont worry, I can help you find it!');
-	const name = await q1();
+	const { name, token } = await q1();
+	loginaxios = axios.create({
+		headers: {
+			token: token,
+		},
+	});
+
 	await q2(name);
 	await q3();
 }

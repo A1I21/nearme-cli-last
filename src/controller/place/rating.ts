@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { prompt } from 'inquirer';
-import { baseurl } from '../..';
+import { baseurl, loginaxios } from '../..';
 import { placeUrl } from './placeUrl';
 export async function rating() {
 	const rating = await prompt([
@@ -20,7 +20,7 @@ export async function rating() {
 			message: 'Where are you? 🗺️ ',
 		},
 	]);
-	const { data: place } = await axios.get(baseurl + '/placeRouts/rating', {
+	const { data: place } = await loginaxios.get(baseurl + '/placeRouts/rating', {
 		params: rating,
 	});
 	const formattedplace = place.map((c: any) =>

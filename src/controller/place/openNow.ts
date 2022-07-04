@@ -4,6 +4,7 @@ import { join } from 'path';
 import { baseurl } from '../..';
 import { userCreate } from '../createUser';
 import { placeUrl } from './placeUrl';
+import { loginaxios } from '../..';
 
 export async function openNow() {
 	console.log('searching place');
@@ -15,7 +16,7 @@ export async function openNow() {
 		},
 	]);
 
-	const { data: place } = await axios.get(baseurl + '/placeRouts/isitopen', {
+	const { data: place } = await loginaxios.get(baseurl + '/placeRouts/isitopen', {
 		params: query,
 	});
 	const formattedPlace = place.map((c: any) =>

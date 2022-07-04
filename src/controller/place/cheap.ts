@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { prompt } from 'inquirer';
 import { join } from 'path';
-import { baseurl } from '../..';
+import { baseurl, loginaxios } from '../..';
 import { placeUrl } from './placeUrl';
 
 export async function cheap() {
@@ -14,7 +14,7 @@ export async function cheap() {
 		},
 	]);
 	try {
-		const { data: place } = await axios.get(baseurl + '/placeRouts/pricesearch', {
+		const { data: place } = await loginaxios.get(baseurl + '/placeRouts/pricesearch', {
 			params: query,
 		});
 

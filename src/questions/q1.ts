@@ -3,6 +3,7 @@ import { createSecureServer } from 'http2';
 import { prompt } from 'inquirer';
 import { userCreate } from '../controller/createUser';
 import { Login } from '../controller/Login';
+let token = '';
 export async function q1() {
 	let name = '';
 	let msg = chalk.redBright('Are you new?,register\n') + chalk.yellowBright('our friend? pleas Login or Exit');
@@ -19,7 +20,9 @@ export async function q1() {
 			await userCreate();
 			break;
 		case 'login':
-			name = await Login();
+			const object = await Login();
+			name = object.name;
+			token = object.token;
 			break;
 		case 'quit the app':
 			process.exit(0);
@@ -28,5 +31,5 @@ export async function q1() {
 			process.exit(0);
 	}
 
-	return name;
+	return { name, token };
 }

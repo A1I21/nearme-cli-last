@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { prompt } from 'inquirer';
 import { join } from 'path';
-import { baseurl } from '../..';
+import { baseurl, loginaxios } from '../..';
 import { placeUrl } from './placeUrl';
 
 export async function searchPlace() {
@@ -14,11 +14,8 @@ export async function searchPlace() {
 		},
 	]);
 
-	const { data: place } = await axios.get(baseurl + '/placeRouts/place', {
+	const { data: place } = await loginaxios.get(baseurl + '/placeRouts/place', {
 		params: query,
-		headers: {
-			token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhoIiwiaWF0IjoxNjU2OTIzMjgzfQ.wRbuL4FU5RY037pOU1rOPN1ZLTOSTgUVI1YZUy0y3Ag`,
-		},
 	});
 	const formattedPlace = place.map((c: any) =>
 		[
