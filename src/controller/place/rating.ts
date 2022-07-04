@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { prompt } from 'inquirer';
 import { baseurl, loginaxios } from '../..';
 import { placeUrl } from './placeUrl';
@@ -32,9 +31,9 @@ export async function rating() {
 			c.price,
 			c.rating,
 			c.openinghours,
-			c.radius,
 			c.category,
 			c.delevryapps,
+			c.usersfavs.length,
 		].join(' - ')
 	);
 	const { placeProm } = await prompt([
@@ -49,4 +48,4 @@ export async function rating() {
 	let lat = xx[2];
 	let lng = xx[3];
 	placeUrl(lat, lng);
-} //end of rating
+}

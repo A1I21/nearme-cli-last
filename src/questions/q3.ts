@@ -1,5 +1,4 @@
 import { prompt } from 'inquirer';
-import Choices from 'inquirer/lib/objects/choices';
 import { cheap } from '../controller/place/cheap';
 import { mostFavs } from '../controller/place/mostpup';
 import { openNow } from '../controller/place/openNow';

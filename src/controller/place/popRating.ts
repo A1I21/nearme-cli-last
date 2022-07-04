@@ -40,10 +40,8 @@ export async function trendy() {
 			},
 		]);
 		let xx = placeProm.split(' - ');
-
 		let lat = xx[2];
 		let lng = xx[3];
-		//console.log(lat, lng);
 		placeUrl(lat, lng);
 	} catch (err) {
 		console.log(err);

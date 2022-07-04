@@ -1,6 +1,4 @@
-import axios from 'axios';
 import { prompt } from 'inquirer';
-import { join } from 'path';
 import { baseurl, loginaxios } from '../..';
 import { placeUrl } from './placeUrl';
 
@@ -27,7 +25,6 @@ export async function cheap() {
 				c.price,
 				c.rating,
 				c.openinghours,
-				c.radius,
 				c.category,
 				c.delevryapps,
 				c.userfavs,
@@ -42,10 +39,8 @@ export async function cheap() {
 			},
 		]);
 		let xx = placeProm.split(' - ');
-		//get the lat and lng from the xx
 		let lat = xx[2];
 		let lng = xx[3];
-		//console.log(lat, lng);
 		placeUrl(lat, lng);
 	} catch (err) {
 		console.log(err);

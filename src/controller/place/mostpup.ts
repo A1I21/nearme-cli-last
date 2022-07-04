@@ -25,10 +25,9 @@ export async function mostFavs() {
 				c.price,
 				c.rating,
 				c.openinghours,
-				c.radius,
 				c.category,
 				c.delevryapps,
-				c.userfavs,
+				c.usersfavs.length,
 			].join(' - ')
 		);
 		const { placeProm } = await prompt([
@@ -40,10 +39,8 @@ export async function mostFavs() {
 			},
 		]);
 		let xx = placeProm.split(' - ');
-		//get the lat and lng from the xx
 		let lat = xx[2];
 		let lng = xx[3];
-		//console.log(lat, lng);
 		placeUrl(lat, lng);
 	} catch (err) {
 		console.log(err);

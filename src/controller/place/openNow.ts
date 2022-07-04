@@ -1,8 +1,5 @@
-import axios from 'axios';
 import { prompt } from 'inquirer';
-import { join } from 'path';
 import { baseurl } from '../..';
-import { userCreate } from '../createUser';
 import { placeUrl } from './placeUrl';
 import { loginaxios } from '../..';
 
@@ -33,8 +30,6 @@ export async function openNow() {
 			c.usersfavs,
 		].join(' - ')
 	);
-	const nn = 'myname';
-	//push nn to usersfavs
 
 	const { placeProm } = await prompt([
 		{
@@ -45,9 +40,7 @@ export async function openNow() {
 		},
 	]);
 	let xx = placeProm.split(' - ');
-	//get the lat and lng from the xx
 	let lat = xx[2];
 	let lng = xx[3];
-	//console.log(lat, lng);
 	placeUrl(lat, lng);
 }

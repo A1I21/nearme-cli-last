@@ -27,7 +27,6 @@ export async function price() {
 				c.price,
 				c.rating,
 				c.openinghours,
-				c.radius,
 				c.category,
 				c.delevryapps,
 			].join(' - ')
@@ -41,10 +40,8 @@ export async function price() {
 			},
 		]);
 		let xx = placeProm.split(' - ');
-		//get the lat and lng from the xx
 		let lat = xx[2];
 		let lng = xx[3];
-		//console.log(lat, lng);
 		placeUrl(lat, lng);
 	} catch (err) {
 		console.log(err);

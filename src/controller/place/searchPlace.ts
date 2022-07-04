@@ -29,7 +29,7 @@ export async function searchPlace() {
 			c.radius,
 			c.category,
 			c.delevryapps,
-			//userfavs: c.userfavs,
+			c.usersfavs.length,
 		].join(' - ')
 	);
 	const { placeProm } = await prompt([
@@ -41,9 +41,7 @@ export async function searchPlace() {
 		},
 	]);
 	let xx = placeProm.split(' - ');
-	//get the lat and lng from the xx
 	let lat = xx[2];
 	let lng = xx[3];
-	//console.log(lat, lng);
 	placeUrl(lat, lng);
 }

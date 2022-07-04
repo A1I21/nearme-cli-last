@@ -1,5 +1,4 @@
 import chalk from 'chalk';
-import { createSecureServer } from 'http2';
 import { prompt } from 'inquirer';
 import { userCreate } from '../controller/createUser';
 import { Login } from '../controller/Login';
