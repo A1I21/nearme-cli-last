@@ -5,9 +5,8 @@ import { q1 } from './q1';
 
 export async function q2(name: string) {
 	let choice = '';
-	if (name === undefined) {
+	if (name == undefined) {
 		console.log(chalk.bgRedBright('yor are a stranger 🤖 \n plase register or login'));
-		process.exit(0);
 	}
 	const { q2Answer } = await prompt({
 		type: 'list',

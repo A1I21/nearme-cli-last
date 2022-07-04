@@ -16,6 +16,9 @@ export async function searchPlace() {
 
 	const { data: place } = await axios.get(baseurl + '/placeRouts/place', {
 		params: query,
+		headers: {
+			token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhoIiwiaWF0IjoxNjU2OTIzMjgzfQ.wRbuL4FU5RY037pOU1rOPN1ZLTOSTgUVI1YZUy0y3Ag`,
+		},
 	});
 	const formattedPlace = place.map((c: any) =>
 		[
