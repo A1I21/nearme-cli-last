@@ -15,3 +15,7 @@
 3. Web Server: `Fastify`
 4. ORM: `mongoose`
 5. DB: `mongo`
+
+
+https://user-images.githubusercontent.com/87023979/194950471-479ee0dc-c8cd-43ab-b108-7ec88a8c4919.mov
+
